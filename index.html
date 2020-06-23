@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./src/styles.css" />
+
+    <script defer src="src/data.js"></script>
+    <script src="src/ImageGallery.js"></script>
+    <script src="src/shoppingCart.js"></script>
+    <script src="src/app.js"></script>
+
+    <title>El banquito</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="header">
+        <i class="fas fa-chair"></i>
+        <h1>El Banquito de Imagenes</h1>
+      </div>
+
+      <div id="search">
+        <form>
+          <input type="text" name="fname" required />
+          <input
+            type="submit"
+            value="Buscar"
+            id="search-button"
+            class="button-search"
+          />
+        </form>
+      </div>
+
+      <div id="shop">
+        <div id="image-gallery">
+          
+        </div>
+      </div>
+
+      <div id="cart">
+        <div><h3>Carrito de Compras</h3></div>
+        <ul id="my-shopping-cart"></ul>
+        <button class="button">Cancelar</button>
+        <button class="button">Comprar</button>
+      </div>
+
+    </div>
+  </body>
+</html>
