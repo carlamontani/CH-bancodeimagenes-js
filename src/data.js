@@ -49,5 +49,3 @@ var data = [
     "img": "https://picsum.photos/200?random=8"
   }
 ];
-
-console.log("hola data");

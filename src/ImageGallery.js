@@ -12,7 +12,6 @@ function ImageGallery() {
   //ALMACENA DATA **
   this.init = function(data) {
     this.data = data;
-    console.log(data)
   };
 
   // FUNCION GET BY ID PARA BUSQUEDA -- RETORNA SOLO ELEMENTOS DE LA BUSQUEDA Y LOS JUNTA CON DATA. QUEDA DATA = PRODUCTS SI NO HAGO BUSQUEDA -- AGREGAR DESPUES

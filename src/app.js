@@ -1,21 +1,42 @@
+// EN WINDOW ONLOAD LLAMO A FUNCION IMAGEGALLERY, DECLARO A PRODUCTS, INIT INICIALIZO Y BUILD HTML
+
+
 window.onload = function() {
   products = new ImageGallery();
 
   products.init(this.data);
 
   products.buildHtml("image-gallery", "data");
+
+
+  let productSelected = [];
+
+  console.log(data);
+
+  function productSelection(data) {
+    for (let i = 0; i < cart.length; i++) {
+      const product = cart[i];
+      if (data.id === i) {
+        productSelected.push(product);
+      }
+    }
+    return productSelected;
+  };
+  productSelection();
+
+  console.log(productSelected);
+
 };
 
 
-function addToCart(data){ 
-  let newLi = document.createElement("li");
-  let newProduct = document.createTextNode("img" + data);
-  newLi.appendChild(newProduct);
-  
-  let parentUl = document.getElementById("my-shopping-cart");
-  let currentDiv = document.getElementById("li");
-  parentUl.insertBefore(newLi, currentDiv);
+// LLAMO A SHOPPINGCART 
+let shop = function() {
+  myShoppingCart = new ShoppingCart();
+
+  myShoppingCart.get()
+
 }
+
 
 //funcion 1 SHOPPING CART //RENAME SHOPPING CART
 /*
