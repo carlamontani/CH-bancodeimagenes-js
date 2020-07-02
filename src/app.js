@@ -3,24 +3,20 @@
 let products;
 let addProduct = [];
 
-
-window.onload = function() {
+$(document).ready(function() {
   products = new ImageGallery();
 
-  products.init(this.data); //pasa la info de data
+  products.init(data); //pasa la info de data
 
-  products.buildHtml("image-gallery", "data");
+  products.buildHtml('image-gallery', 'data');
 
-  //console.log(data);
+  headerMenu = $('#header-menu');
 
-  //myShoppingCart = new ShoppingCart();
+});
 
-  //myShoppingCart.init(this.productSelected);
-
-  //myShoppingCart.showCart()
-
-};
-
+function menutoggle(){
+  headerMenu.show('slow');
+}
 
 //funcion 1 SHOPPING CART //RENAME SHOPPING CART
 /*
