@@ -1,8 +1,6 @@
 //funcion SHOPPING CART anda muuuy mal
-var productSelected = [];
-let itemPrice = [];
-let html2 = [];
-let totalPrice2 = [];
+var productSelected = []; 
+let itemhtml = []; 
 let item = [];
 let price = [];
 let sumaPrecio = [];
@@ -20,12 +18,12 @@ function startShoppingCart(id){
   //////////////////////////////////////////////////////////////////////
 
   //MI FUNCION DE AGREGAR AL CARRO QUE YA ANDA , cambiar los nombres
-  function myFunction() {  
+  function buildhtmlItem() {  
 
     let container2 = document.getElementById("my-shopping-cart");
-    let containerinfo =  soytufuncion();
+    let containerinfo =  buildItem();
 
-    function soytufuncion(){
+    function buildItem(){
       return `
         <div id="cart-item">
           <p>IMG${id} </p>
@@ -36,10 +34,10 @@ function startShoppingCart(id){
       `
     }
 
-    html2 = html2 + containerinfo;
-    container2.innerHTML = html2;   
+    itemhtml = itemhtml + containerinfo;
+    container2.innerHTML = itemhtml;   
   }
-  myFunction()
+  buildhtmlItem()
   //////////////////////////////////////////////////////////////////////
 
   //console.log(item.price)
@@ -59,7 +57,7 @@ function startShoppingCart(id){
     }
 
     Price();
-  };
+};
 
 
 

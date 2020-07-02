@@ -2,6 +2,7 @@
 
 * {
   margin: 0;
+  padding: 0;
   font-family: 'Source Sans Pro', sans-serif;
 }
 
@@ -11,26 +12,73 @@ body {
   color: #000000;
 }
 
+.h1{
+  font-weight: 700;
+  font-size: 21px;
+}
+
 .container {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
+  padding-top: 10px;
 }
 
-#header,
-#search,
 #shop {
   display: flex;
   justify-content: center;
   align-content: center;
 }
 
+#header-sticky{
+  position: sticky;
+  top: 0;
+}
+
 #header{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0px 20px;
+  background-color: transparent;
+}
+
+.fa-bars{
+  font-size: 15px;
+  color: #E94694;
+}
+
+#header-menu{
+  position: absolute;
+  left: 30px;
+  top: 30px;
+  z-index: 1;
+  background-color: #FFF2F2;
+  border: 0.4px solid #E94694;
+  padding: 10px;
+}
+
+ul{  
+  list-style-type:none;
+  font-size: 12px;
+  line-height: 20px;
+  color: #E94694;
+}
+
+li{
+  padding: 10px;
+}
+
+#header-title{
+  flex: 1;
+  padding-left: 20px;
+  position: sticky;
+}
+
+#header-search{
+  position: sticky;
 }
 
 #shop {
@@ -117,8 +165,8 @@ body {
 }
 
 #cart-icon{
-  font-size: 12px;
-  padding-top: 10px;
+  font-size: 10px;
+  padding-top: 5px;
 }
 
 #cart-button {
@@ -141,7 +189,7 @@ body {
 }
 
 .h3 {
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 30px;
+  font-weight: 700;
+  font-size: 15px;
+  color: #E94694;
 }
