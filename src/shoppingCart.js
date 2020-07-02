@@ -1,4 +1,3 @@
-//funcion SHOPPING CART anda muuuy mal
 var productSelected = []; 
 let itemhtml = []; 
 let item = [];
