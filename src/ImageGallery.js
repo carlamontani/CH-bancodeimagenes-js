@@ -23,7 +23,7 @@ function ImageGallery() {
       <img src=${data.img} alt="img" />
       <div id="image-info">
         <p>${data.title}</p>
-        <button class="button add-to-cart" onclick="startShoppingCart(${data.id})">Agregar $${data.price}</button>
+        <button class="button add-to-cart" onclick="shoppingCart.add(${data.id})">Agregar $${data.price}</button>
       </div>
     </div>
     `;
