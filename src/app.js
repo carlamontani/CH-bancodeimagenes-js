@@ -1,41 +1,25 @@
 // EN WINDOW ONLOAD LLAMO A FUNCION IMAGEGALLERY, DECLARO A PRODUCTS, INIT INICIALIZO Y BUILD HTML
+//let productSelected;
+let products;
+let addProduct = [];
 
 
 window.onload = function() {
   products = new ImageGallery();
 
-  products.init(this.data);
+  products.init(this.data); //pasa la info de data
 
   products.buildHtml("image-gallery", "data");
 
+  //console.log(data);
 
-  let productSelected = [];
+  //myShoppingCart = new ShoppingCart();
 
-  console.log(data);
+  //myShoppingCart.init(this.productSelected);
 
-  function productSelection(data) {
-    for (let i = 0; i < cart.length; i++) {
-      const product = cart[i];
-      if (data.id === i) {
-        productSelected.push(product);
-      }
-    }
-    return productSelected;
-  };
-  productSelection();
-
-  console.log(productSelected);
+  //myShoppingCart.showCart()
 
 };
-
-
-// LLAMO A SHOPPINGCART 
-let shop = function() {
-  myShoppingCart = new ShoppingCart();
-
-  myShoppingCart.get()
-
-}
 
 
 //funcion 1 SHOPPING CART //RENAME SHOPPING CART

@@ -4,46 +4,66 @@
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="./src/styles.css" />
 
-    <script defer src="src/data.js"></script>
+    <script src="src/data.js"></script>
     <script src="src/ImageGallery.js"></script>
     <script src="src/shoppingCart.js"></script>
-    <script src="src/app.js"></script>
+    <script defer src="src/app.js"></script>
+
+    <script src="https://kit.fontawesome.com/90d3ed91fb.js" crossorigin="anonymous"></script>
 
     <title>El banquito</title>
   </head>
-
   <body>
+    <p id="demo"></p>
+    <ul></ul>
     <div class="container">
       <div id="header">
-        <i class="fas fa-chair"></i>
-        <h1>El Banquito de Imagenes</h1>
+        <h1>El Banquito de Imagenes.</h1>
+
+        <div id="search">
+            <form>
+              <input type="text" name="fname" required />
+              <input
+                type="submit"
+                value="Buscar"
+                id="search-button"
+                class="button-search"
+              />
+            </form>
+          </div>
+          
       </div>
 
-      <div id="search">
-        <form>
-          <input type="text" name="fname" required />
-          <input
-            type="submit"
-            value="Buscar"
-            id="search-button"
-            class="button-search"
-          />
-        </form>
-      </div>
 
       <div id="shop">
         <div id="image-gallery">
           
         </div>
+      </div>      
+
+    </div>
+    
+    <div id="cart" class="podbar">
+      <div id="cart-top">
+          
+        <div id="cart-title">
+          <h3 class="h3">Tu Changuito</h3>
+          <i class="fas fa-shopping-cart" id="cart-icon" ></i>
+        </div>
+
+        <p id="cart-total">Total $
+          <p id="total"></p>
+        </p>    
+
+        <button class="button" id="cart-button">Descargar</button>
+    
       </div>
 
-      <div id="cart">
-        <div><h3>Carrito de Compras</h3></div>
-        <ul id="my-shopping-cart"></ul>
-        <button class="button">Cancelar</button>
-        <button class="button">Comprar</button>
+      <div id="my-shopping-cart">
+
       </div>
 
     </div>
+
   </body>
 </html>

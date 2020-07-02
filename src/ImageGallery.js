@@ -21,10 +21,9 @@ function ImageGallery() {
     return `
     <div id="image-container">
       <img src=${data.img} alt="img" />
-      <p>${data.title}</p>
-      <div>
-        <p>$${data.price}</p>
-        <button class="button add-to-cart" onclick="addToCart(${data.id})">Agregar al Carrito</button>
+      <div id="image-info">
+        <p>${data.title}</p>
+        <button class="button add-to-cart" onclick="startShoppingCart(${data.id})">Agregar $${data.price}</button>
       </div>
     </div>
     `;
@@ -35,13 +34,13 @@ function ImageGallery() {
   this.buildHtml = function(containerId, sourceData) {
 
     //1-getelementbyid
-    var container = document.getElementById(containerId);
+    let container = document.getElementById(containerId);
     container.innerHTML = "";
 
     //2.variable html vacia para llenar con el foreach
-    var html = '';
+    let html = '';
 
-    //3.ELFOREACH recive sourcedata y pasa por c/u de los productos
+    //3.ELFOREACH reciBe sourcedata y pasa por c/u de los productos
     this[sourceData].forEach(product => {
       html = html + this.buildGallery(product);
     });
