@@ -4,21 +4,33 @@ let item = [];
 let price = [];
 let sumaPrecio = [];
 
-function startShoppingCart(id){
+function ShoppingCart(){
 
-  //LA FUNCION DEL PRODUCT SELECTED QUE SOLO FUNCIONA AHI
-  this.start = data.forEach(i => {
-    if (i.id == id) {
-      productSelected.push(i);
-      item = (i);
-    }
-  });
-  console.log(productSelected);
-  //////////////////////////////////////////////////////////////////////
+  this.productSelected = [];
 
-  //MI FUNCION DE AGREGAR AL CARRO QUE YA ANDA , cambiar los nombres
-  function buildhtmlItem() {  
+  // this.start() = function() {
+  //   //Inicializar carrito guardado.
+  // }
 
+  // this.clear() = function() {
+  //   //borrar todo el carrito
+  // }
+
+  // this.clearOne(id) = function() {
+  //   //brrar solo uno.
+  // }
+
+  this.add = function(id) {
+    data.forEach(i => {
+      if (i.id == id) {
+        this.productSelected.push(i);
+        this.mostrar(id);
+        this.recalcularCarrito(i);
+      }
+    })
+  }
+
+  this.mostrar = (id) => {
     let container2 = document.getElementById("my-shopping-cart");
     let containerinfo =  buildItem();
 
@@ -36,31 +48,22 @@ function startShoppingCart(id){
     itemhtml = itemhtml + containerinfo;
     container2.innerHTML = itemhtml;   
   }
-  buildhtmlItem()
-  //////////////////////////////////////////////////////////////////////
 
-  //console.log(item.price)
-    function Price(id) {
+  this.recalcularCarrito = (item) => {
+    // if (productSelected.id == id) { /////ver este if]
+      price.push(item.price);
+      console.log(price)
 
-        if (productSelected.id == id) { /////ver este if
-          price.push(item.price);
+      let reducesumaPrecio = (accumulator, currentValue) => accumulator + currentValue;
+      sumaPrecio = price.reduce(reducesumaPrecio);
+      console.log(sumaPrecio)
+    // }
 
-          console.log(price)
-          let reducesumaPrecio = (accumulator, currentValue) => accumulator + currentValue;
-          sumaPrecio = price.reduce(reducesumaPrecio);
-          console.log(sumaPrecio)
-        }
+    let containertotal = document.querySelector('#total');
+    containertotal.innerHTML = sumaPrecio;
+  }
 
-        let containertotal = document.querySelector('#total');
-        containertotal.innerHTML = sumaPrecio;
-    }
-
-    Price();
-};
-
-
-
-
+}
 
 
 /////////////////////////////////////////////////////////////////

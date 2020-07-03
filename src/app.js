@@ -5,6 +5,7 @@ let addProduct = [];
 
 $(document).ready(function() {
   products = new ImageGallery();
+  shoppingCart =  new ShoppingCart();
 
   products.init(data); //pasa la info de data
 
