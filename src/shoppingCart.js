@@ -100,18 +100,17 @@ function ShoppingCart(){
   }
 
   this.populate = function() {
-    this.productSelected = this.get();
-  }
-
-  this.get = function() {
     if (localStorage.getItem('datalocalStorage') === null) {
-      productSelected = [];
-    } else {
-      let datastorage = localStorage.getItem('datalocalStorage');
-      return JSON.parse(datastorage);
+      this.productSelected = [];
+    } else{
+      this.productSelected = this.get();
     }
   }
 
+  this.get = function() {
+    let datastorage = localStorage.getItem('datalocalStorage');
+    return JSON.parse(datastorage);
+  }
 }
 
 

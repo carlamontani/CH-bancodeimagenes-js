@@ -9,7 +9,9 @@ $(document).ready(function() {
 
   shoppingCart =  new ShoppingCart();
 
-  //shoppingCart.populate();
+  //shoppingCart.start();
+
+  shoppingCart.populate();
 
   shoppingCart.buildHtml();
 
