@@ -16,6 +16,19 @@
     <title>El banquito</title>
   </head>
   <body>
+    <div id="prueba"></div>
+    <div class="menu-about">
+      <div class="flex">
+        <p>
+          El banquito fue desarrollado como proyecto final del curso de Javascript de Coderhouse. Utilizando la API de Unsplash https://api.unsplash.com/
+        </p>
+      </div>
+    </div>
+    <div class="menu-contact">
+        <p>
+          formulario
+        </p>
+    </div>
     <div class="container">
       <div id="header-sticky">
         <div id="header">
@@ -24,15 +37,19 @@
             <i class="fas fa-bars" onclick="menutoggle()"></i>
             <div id="header-menu" style="display: none;">
               <ul>
-                <li>about</li>
-                <li>links</li>
+                <li onclick="menuabouttoggle()">about</li>
+                <li>contact me</li>
+                <li>
+                  <i class="fab fa-github"></i>
+                  <i class="fab fa-behance"></i>
+                  <i class="fab fa-linkedin-in"></i>
+                </li>
               </ul>
             </div>
           </div>
 
           <div id="header-title">
             <h1 class="h1">El Banquito de Imagenes.</h1>
-            <h1>PRUEBA GIT</h1>
           </div>
 
           <div id="header-search">
@@ -63,6 +80,9 @@
           
         <div id="cart-title">
           <h3 class="h3">Tu Changuito</h3>
+          <p id="clear-cart">
+            <p onclick="shoppingCart.clear()">borrar todo<i class="fas fa-thumbs-down"></i></p>
+          </p>
         </div>
 
         <p id="cart-total">Total $

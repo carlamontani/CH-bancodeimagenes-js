@@ -1,4 +1,4 @@
-var productSelected = []; 
+//var productSelected = [];  ---lo desactive
 let itemhtml = []; 
 let item = [];
 let price = [];
@@ -12,62 +12,144 @@ function ShoppingCart(){
   //   //Inicializar carrito guardado.
   // }
 
-  // this.clear() = function() {
-  //   //borrar todo el carrito
-  // }
+  this.clear = function() {
+    productSelected = [];
+    price = [];
+    itemhtml = [];
+    document.getElementById("my-shopping-cart").innerHTML = "";   
+    document.querySelector('#total').innerHTML = 0;
+  }
 
-  // this.clearOne(id) = function() {
-  //   //brrar solo uno.
-  // }
+  this.clearOne = function(id) {    
+    console.log(id);
+
+    let removeitemparent = document.getElementById("my-shopping-cart");
+    let removeitem = document.querySelector(`#cart-item${id}`);
+    let removefunction = Removefunction();
+    function Removefunction() {
+      removeitemparent.removeChild(removeitem);
+    } 
+
+    //itemhtml = itemhtml - removefunction;
+
+    productosprueba = this.productSelected; //
+
+    for (let i = 0; i < productosprueba.length; i++) {  /////FUNCION BORRAR
+
+      //let precioactual = productosprueba[i].price;
+
+
+      if(productosprueba[i].id == id){
+        //console.log(sumaPrecio - precioactual);
+        //sumaPrecio = sumaPrecio - precioactual;
+        //let containerresta = document.querySelector('#total');
+        //containerresta.innerHTML = sumaPrecio;
+        productosprueba.splice(i, 1);
+        break;
+      }
+      //console.log(this.productSelected);
+    }
+
+    productosprueba = [];
+
+    productSelected = [];
+
+  }
 
   this.add = function(id) {
     data.forEach(i => {
       if (i.id == id) {
         this.productSelected.push(i);
-        this.mostrar(id);
+        var cartString = JSON.stringify(this.productSelected);
+        localStorage.setItem('data', cartString)
+        this.buildHtml();
         this.recalcularCarrito(i);
       }
     })
   }
 
-  this.mostrar = (id) => {
-    let container2 = document.getElementById("my-shopping-cart");
-    let containerinfo =  buildItem();
+  this.buildHtml = () => {
 
-    function buildItem(){
+    let productslist = this.productSelected;
+
+    function buildItem(i) {
       return `
-        <div id="cart-item">
-          <p>IMG${id} </p>
+        <div id="cart-item${i.id}" class="cart-item">
+          <p>IMG${i.id} $${i.price}</p>
           <a href="#">
-            <i class="far fa-window-close" id="icon ${id}"></i>
+            <i class="far fa-window-close" id="icon${i.id}" onclick="shoppingCart.clearOne(${i.id})"></i>
           </a>
         </div>
-      `
+      `;
     }
+    let containerShoppingCart = document.getElementById("my-shopping-cart");
+    containerShoppingCart.innerHTML = `
+      ${productslist.map(buildItem).join(" ")}
+      `;
+    
+    
+    //var containerinfo =  buildItem();
 
-    itemhtml = itemhtml + containerinfo;
-    container2.innerHTML = itemhtml;   
+    //console.log(containerinfo)
+    //containerShoppingCart.innerHTML = containerinfo ; 
+
+    //itemhtml = itemhtml + containerinfo;
+    //containerShoppingCart.innerHTML = itemhtml;   
   }
 
   this.recalcularCarrito = (item) => {
-    // if (productSelected.id == id) { /////ver este if]
-      price.push(item.price);
-      console.log(price)
+    price.push(item.price);
 
-      let reducesumaPrecio = (accumulator, currentValue) => accumulator + currentValue;
-      sumaPrecio = price.reduce(reducesumaPrecio);
-      console.log(sumaPrecio)
-    // }
+    let reducesumaPrecio = (accumulator, currentValue) => accumulator + currentValue;
+    sumaPrecio = price.reduce(reducesumaPrecio);
 
     let containertotal = document.querySelector('#total');
     containertotal.innerHTML = sumaPrecio;
   }
 
+  this.populate = function() {
+    this.productSelected = this.get();
+  }
+
+  this.get = function() {
+    let datastorage = localStorage.getItem('data');
+    return JSON.parse(datastorage);
+  }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /////////////////////////////////////////////////////////////////
 //prubas para price
+
 
 
   //////////////////////////////////////////////////////////////////////
@@ -75,6 +157,33 @@ function ShoppingCart(){
 
   //LA VERDADERA FUNCION DEL PRECIO toma todos los precio $$$$
   /* 
+
+
+
+            <div id="cart-item${i.id}" class="cart-item">
+            <p>IMG${i.id} $${i.price}</p>
+            <a href="#">
+              <i class="far fa-window-close" id="icon${i.id}" onclick="shoppingCart.clearOne(${i.id})"></i>
+            </a>
+          </div>
+
+  let productosprueba = this.productSelected[i];
+
+
+    console.log(productosprueba);
+    
+    
+    productosprueba.forEach(element => {
+      if (element[i].id == id) {
+        console.log(element);
+        console.log(productosprueba)
+        console.log(indexOf(element));
+        //let index = followersArray.map(i => i.id).indexOf(follower.id);
+        
+        //var removed = productosprueba.splice(id, 2);
+      }
+    });
+
   Price();
 
   console.log(itemPrice);

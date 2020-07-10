@@ -48,5 +48,3 @@ function ImageGallery() {
     container.innerHTML = html;
   };
 }
-
-///////////////////////// PASAR A APP **************

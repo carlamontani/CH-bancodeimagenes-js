@@ -4,8 +4,14 @@ let products;
 let addProduct = [];
 
 $(document).ready(function() {
+
   products = new ImageGallery();
+
   shoppingCart =  new ShoppingCart();
+
+  shoppingCart.populate();
+
+  shoppingCart.buildHtml();
 
   products.init(data); //pasa la info de data
 
@@ -16,7 +22,11 @@ $(document).ready(function() {
 });
 
 function menutoggle(){
-  headerMenu.show('slow');
+  headerMenu.toggle("slow");
+}
+
+function menuabouttoggle(){
+  $('.menu-about').toggle("slow");
 }
 
 //funcion 1 SHOPPING CART //RENAME SHOPPING CART
