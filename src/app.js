@@ -2,6 +2,7 @@
 //let productSelected;
 let products;
 let addProduct = [];
+let imagesDisplay = [];
 
 $(document).ready(function() {
   var url = `https://api.unsplash.com/photos/random?count=10&client_id=EKBNZeJV2o9Yl5CtCgcjiSv8dLPXoaoqFRFyTBgK-ww`;
@@ -11,51 +12,53 @@ $(document).ready(function() {
     url: url
   })
     .done(function(images) {
-      console.log(images);
+      //console.log(images);
+
+      products.init(images);
+
+      products.buildHtml('image-gallery', 'data');
+      
       renderImages(images);
+
+      shoppingCart =  new ShoppingCart();
+
+      //shoppingCart.populate();
+
+      //shoppingCart.buildHtml();
+
+      console.log(imagesDisplay)
+      console.log(data)
     })
+
     .fail(function(error) {
       console.log(error);
     });
 
   products = new ImageGallery();
 
-  shoppingCart =  new ShoppingCart();
+  //shoppingCart =  new ShoppingCart();
 
   //shoppingCart.start();
+  console.log(imagesDisplay)
+  console.log(data)
 
-  shoppingCart.populate();
+  //shoppingCart.populate();
 
-  shoppingCart.buildHtml();
+  //shoppingCart.buildHtml();
 
-  products.init(data); //pasa la info de data
+  //products.init(data); //pasa la info de data
 
-  products.buildHtml('image-gallery', 'data');
+  //products.buildHtml('image-gallery', 'data');
 
   headerMenu = $('#header-menu');
 
 });
 
-function getImageHtml(i) {
-  console.log(i)
-  return `
-    <div class="image-container">
-      <img src="${i.urls.small}" alt="${i.alt_description}">
-      <div class="image-info">
-        <p>ph: ${i.user.name}</p>
-        <button class="button add-to-cart" onclick="shoppingCart.add(${i.id})">Agregar $5</button>
-      </div>
-    </div>
-  `;
-}
-
 function renderImages(homeimages) {
   homeimages.forEach(i => {
-    var htmlhome = getImageHtml(i);
-    $("#allpics").append(htmlhome);
+    imagesDisplay.push(i);
   });
 }
-
 
 function menutoggle(){
   headerMenu.toggle("slow");
@@ -178,4 +181,19 @@ const showProducts2 = () => {
 };
 
 showProducts2();
+
+
+function getImageHtml(i) {
+  console.log(i)
+  return `
+    <div class="image-container">
+      <img src="${i.urls.small}" alt="${i.alt_description}">
+      <div class="image-info">
+        <p>ph: ${i.user.name}</p>
+        <button class="button add-to-cart" onclick="shoppingCart.add(${i.id})">Agregar $5</button>
+      </div>
+    </div>
+  `;
+}
+
 */

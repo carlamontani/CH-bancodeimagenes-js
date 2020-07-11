@@ -25,6 +25,7 @@ $(document).ready(() => {
     }
   
     function renderProducts(products) {
+      $("#productsContainer").empty();
       products.forEach(product => {
         var htmlTemplate = getCardHtml(product);
         $("#productsContainer").append(htmlTemplate);

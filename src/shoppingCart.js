@@ -53,7 +53,8 @@ function ShoppingCart(){
   }
 
   this.add = function(id) {
-    data.forEach(i => {
+    console.log(imagesDisplay)
+    imagesDisplay.forEach(i => {
       if (i.id == id) {
         (this.productSelected).push(i);
         var cartString = JSON.stringify(this.productSelected);
