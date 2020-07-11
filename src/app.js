@@ -4,6 +4,19 @@ let products;
 let addProduct = [];
 
 $(document).ready(function() {
+  var url = `https://api.unsplash.com/photos/random?count=10&client_id=EKBNZeJV2o9Yl5CtCgcjiSv8dLPXoaoqFRFyTBgK-ww`;
+
+  $.ajax({
+    method: "GET",
+    url: url
+  })
+    .done(function(images) {
+      console.log(images);
+      renderImages(images);
+    })
+    .fail(function(error) {
+      console.log(error);
+    });
 
   products = new ImageGallery();
 
@@ -22,6 +35,27 @@ $(document).ready(function() {
   headerMenu = $('#header-menu');
 
 });
+
+function getImageHtml(i) {
+  console.log(i)
+  return `
+    <div class="image-container">
+      <img src="${i.urls.small}" alt="${i.alt_description}">
+      <div class="image-info">
+        <p>ph: ${i.user.name}</p>
+        <button class="button add-to-cart" onclick="shoppingCart.add(${i.id})">Agregar $5</button>
+      </div>
+    </div>
+  `;
+}
+
+function renderImages(homeimages) {
+  homeimages.forEach(i => {
+    var htmlhome = getImageHtml(i);
+    $("#allpics").append(htmlhome);
+  });
+}
+
 
 function menutoggle(){
   headerMenu.toggle("slow");

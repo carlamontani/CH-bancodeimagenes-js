@@ -18,10 +18,11 @@ function ImageGallery() {
 
   //PARTE HTML P LLENAR CON DATA **
   this.buildGallery = function(data) {
+    console.log(data)
     return `
-    <div id="image-container">
+    <div class="image-container">
       <img src=${data.img} alt="img" />
-      <div id="image-info">
+      <div class="image-info">
         <p>${data.title}</p>
         <button class="button add-to-cart" onclick="shoppingCart.add(${data.id})">Agregar $${data.price}</button>
       </div>

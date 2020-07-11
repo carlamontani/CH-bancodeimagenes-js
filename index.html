@@ -5,18 +5,22 @@
     <link rel="stylesheet" href="./src/styles.css" />
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
 
     <script src="src/data.js"></script>
     <script src="src/ImageGallery.js"></script>
     <script src="src/shoppingCart.js"></script>
+    <script src="src/search.js"></script>
     <script defer src="src/app.js"></script>
 
     <script src="https://kit.fontawesome.com/90d3ed91fb.js" crossorigin="anonymous"></script>
 
     <title>El banquito</title>
   </head>
+
   <body>
     <div id="prueba"></div>
+
     <div class="menu-about">
       <div class="flex">
         <p>
@@ -24,11 +28,13 @@
         </p>
       </div>
     </div>
+
     <div class="menu-contact">
         <p>
           formulario
         </p>
     </div>
+
     <div class="container">
       <div id="header-sticky">
         <div id="header">
@@ -53,29 +59,33 @@
           </div>
 
           <div id="header-search">
-            <form>
-              <input type="text" name="fname" required />
-              <input
-                type="submit"
-                value="Buscar"
-                id="search-button"
-                class="button-search"
-              />
-            </form>
+              <form action="#" name="step1">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      name="search"
+                      class="form-control"
+                      placeholder="buscar"
+                    />
+                  </div>
+                  <button type="submit" class="btn btn-primary">buscar</button>
+              </form>
           </div>
         </div>
       </div>
 
 
       <div id="shop">
-        <div id="image-gallery">
-          
-        </div>
+        <div id="allpics"></div>        
+        <div id="image-gallery"></div>
       </div>      
 
     </div>
+  
+    <div class="row" id="productsContainer"></div>
     
     <div id="cart" class="podbar">
+
       <div id="cart-top">
           
         <div id="cart-title">
@@ -93,9 +103,7 @@
     
       </div>
 
-      <div id="my-shopping-cart">
-
-      </div>
+      <div id="my-shopping-cart"></div>
 
     </div>
 

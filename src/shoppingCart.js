@@ -71,7 +71,7 @@ function ShoppingCart(){
     function buildItem(i) {
       return `
         <div id="cart-item${i.id}" class="cart-item">
-          <p>IMG${i.id} $${i.price}</p>
+          <p>IMG${i.id} </p>
           <a href="#">
             <i class="far fa-window-close" id="icon${i.id}" onclick="shoppingCart.clearOne(${i.id})"></i>
           </a>

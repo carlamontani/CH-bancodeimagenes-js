@@ -126,11 +126,11 @@ li{
   flex-wrap: wrap;
 }
 
-#image-container{
+.image-container{
   padding: 20px;
 }
 
-#image-info{
+.image-info{
   display: flex;
   justify-content: space-between;
   align-items: center;
