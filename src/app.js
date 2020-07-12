@@ -65,6 +65,20 @@ function menutoggle(){
 }
 
 function menuabouttoggle(){
+  $('.menu-about').show("slow");
+  headerMenu.toggle("fast");
+}
+
+function menucontacttoggle(){
+  $('.menu-contact').show("slow");
+  headerMenu.toggle("fast");
+}
+
+function closemenucontact(){
+  $('.menu-contact').toggle("slow");
+}
+
+function closemenuabout(){
   $('.menu-about').toggle("slow");
 }
 

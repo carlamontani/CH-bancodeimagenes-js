@@ -23,16 +23,21 @@
 
     <div class="menu-about">
       <div class="flex">
-        <p>
+        <i class="far fa-window-close menu-close" onclick="closemenuabout()" ></i>
+        <p class= "menu-info">
           El banquito fue desarrollado como proyecto final del curso de Javascript de Coderhouse. Utilizando la API de Unsplash https://api.unsplash.com/
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet quam veniam quos voluptatum doloribus corrupti architecto tenetur necessitatibus similique sapiente quae, corporis, sequi amet unde nihil excepturi voluptatem delectus quod!
         </p>
       </div>
     </div>
 
     <div class="menu-contact">
+      <div class="flex">
+        <i class="far fa-window-close menu-close" onclick="closemenucontact()" ></i>
         <p>
-          formulario
+          proximamente formulario
         </p>
+      </div>
     </div>
 
     <div class="container">
@@ -44,11 +49,11 @@
             <div id="header-menu" style="display: none;">
               <ul>
                 <li onclick="menuabouttoggle()">about</li>
-                <li>contact me</li>
+                <li onclick="menucontacttoggle()">contact me</li>
                 <li>
-                  <i class="fab fa-github"></i>
-                  <i class="fab fa-behance"></i>
-                  <i class="fab fa-linkedin-in"></i>
+                  <a href="https://github.com/carlamontani"><i class="fab fa-github"></i></a>
+                  <a href="https://www.behance.net/carlamontani"><i class="fab fa-behance"></i></a>
+                  <a href="http://"><i class="fab fa-linkedin-in"></i></a>
                 </li>
               </ul>
             </div>

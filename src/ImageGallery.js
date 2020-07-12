@@ -20,11 +20,13 @@ function ImageGallery() {
   this.buildGallery = function(data) {
     //console.log(data)
     return `
-    <div class="image-container">
-      <img src="${data.urls.small}" alt="${data.alt_description}"/>
-      <p>${data.id} </p>
+    <div class="image-card">
+      <div class="image-container">
+        <img src="${data.urls.small}" alt="${data.alt_description}"/>
+      </div>
       <div class="image-info">
-        <p>ph: ${data.user.name}</p>
+        <p>${data.id}<br>
+        ph: ${data.user.name}</p>
         <button class="button add-to-cart" onclick="shoppingCart.add(${data.id})">Agregar $5</button>
       </div>
     </div>
