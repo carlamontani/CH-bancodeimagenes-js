@@ -3,8 +3,12 @@
 let products;
 let addProduct = [];
 let imagesDisplay = [];
+let shoppingCart;
 
 $(document).ready(function() {
+  
+  products = new ImageGallery();
+  
   var url = `https://api.unsplash.com/photos/random?count=30&client_id=EKBNZeJV2o9Yl5CtCgcjiSv8dLPXoaoqFRFyTBgK-ww`;
 
   $.ajax({
@@ -18,7 +22,7 @@ $(document).ready(function() {
 
       products.buildHtml('image-gallery', 'data');
       
-      renderImages(images);
+      // renderImages(images); //No es necesario mas esto, se puede borrar. Ahora haces el render desde buildHtml 
 
       shoppingCart =  new ShoppingCart();
 
@@ -26,21 +30,20 @@ $(document).ready(function() {
 
       //shoppingCart.buildHtml();
 
-      console.log(imagesDisplay)
-      console.log(data)
+      // console.log(imagesDisplay)
+      // console.log(data)
     })
 
     .fail(function(error) {
       console.log(error);
     });
 
-  products = new ImageGallery();
 
   //shoppingCart =  new ShoppingCart();
 
   //shoppingCart.start();
-  console.log(imagesDisplay)
-  console.log(data)
+  // console.log(imagesDisplay)
+  // console.log(data)
 
   //shoppingCart.populate();
 
@@ -53,7 +56,7 @@ $(document).ready(function() {
   headerMenu = $('#header-menu');
 
 });
-
+//Esta funcion no se usa mas, se puede borrar
 function renderImages(homeimages) {
   homeimages.forEach(i => {
     imagesDisplay.push(i);
