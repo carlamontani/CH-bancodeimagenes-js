@@ -5,7 +5,7 @@ let addProduct = [];
 let imagesDisplay = [];
 
 $(document).ready(function() {
-  var url = `https://api.unsplash.com/photos/random?count=10&client_id=EKBNZeJV2o9Yl5CtCgcjiSv8dLPXoaoqFRFyTBgK-ww`;
+  var url = `https://api.unsplash.com/photos/random?count=30&client_id=EKBNZeJV2o9Yl5CtCgcjiSv8dLPXoaoqFRFyTBgK-ww`;
 
   $.ajax({
     method: "GET",

@@ -143,6 +143,7 @@ li{
 #image-gallery{
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .image-card{
