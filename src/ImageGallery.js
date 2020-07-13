@@ -6,6 +6,9 @@ function ImageGallery() {
   //RECIBE DATA **
   this.data = [];
 
+  this.get = function () {
+    return this.data;
+  }
 
   //RECIBE RESULTADOS DE BUSQUEDA ----FALTA HACER BUSCADOR
 
@@ -27,7 +30,7 @@ function ImageGallery() {
       <div class="image-info">
         <p>${data.id}<br>
         ph: ${data.user.name}</p>
-        <button class="button add-to-cart" onclick="shoppingCart.add(${data.id})">Agregar $5</button>
+        <button class="button add-to-cart" onclick="shoppingCart.add('${data.id}')">Agregar $5</button>
       </div>
     </div>
     `;

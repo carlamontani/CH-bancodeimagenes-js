@@ -53,7 +53,7 @@ function ShoppingCart(){
   }
 
   this.add = function(id) {
-    console.log(imagesDisplay)
+    let imagesDisplay = products.get();
     imagesDisplay.forEach(i => {
       if (i.id == id) {
         (this.productSelected).push(i);
