@@ -5,62 +5,43 @@ let addProduct = [];
 let imagesDisplay = [];
 let shoppingCart;
 
-$(document).ready(function() {
+$(document).ready(function App() {
   
   products = new ImageGallery();
   
-  var url = `https://api.unsplash.com/photos/random?count=30&client_id=EKBNZeJV2o9Yl5CtCgcjiSv8dLPXoaoqFRFyTBgK-ww`;
+  var url = `https://api.unsplash.com/photos/random?count=28&client_id=EKBNZeJV2o9Yl5CtCgcjiSv8dLPXoaoqFRFyTBgK-ww`;
 
   $.ajax({
     method: "GET",
     url: url
   })
     .done(function(images) {
-      //console.log(images);
+      console.log(images);
 
       products.init(images);
 
       products.buildHtml('image-gallery', 'data');
       
-      // renderImages(images); //No es necesario mas esto, se puede borrar. Ahora haces el render desde buildHtml 
-
       shoppingCart =  new ShoppingCart();
 
-      //shoppingCart.populate();
+      shoppingCart.populate();
 
-      //shoppingCart.buildHtml();
+      shoppingCart.buildHtml();
 
       // console.log(imagesDisplay)
-      // console.log(data)
     })
 
     .fail(function(error) {
       console.log(error);
     });
 
-
-  //shoppingCart =  new ShoppingCart();
-
-  //shoppingCart.start();
-  // console.log(imagesDisplay)
-  // console.log(data)
-
-  //shoppingCart.populate();
-
-  //shoppingCart.buildHtml();
-
-  //products.init(data); //pasa la info de data
-
-  //products.buildHtml('image-gallery', 'data');
-
   headerMenu = $('#header-menu');
 
 });
-//Esta funcion no se usa mas, se puede borrar
-function renderImages(homeimages) {
-  homeimages.forEach(i => {
-    imagesDisplay.push(i);
-  });
+
+function hideCart(){
+  $('#my-shopping-cart').toggle("slow");
+  $('.fa-sort-down').toggleClass( "selected" );
 }
 
 function menutoggle(){
@@ -84,6 +65,44 @@ function closemenucontact(){
 function closemenuabout(){
   $('.menu-about').toggle("slow");
 }
+
+function botonon(){
+  $('.button ').toggle("fast");
+}
+
+function download(){
+  document.getElementById("my-shopping-cart").innerHTML = "";  
+  price2 = datos();
+  console.log(price2);
+
+  price2.forEach(element => {
+    let htmlprueba = `
+        <div class="cart-item">
+          <div class="cart-info-download">
+            <p>ph: ${element.user.name}</p>
+            <a href="${element.links.download}?force=true" class="cart-icon">
+              Descargar <i class="fas fa-arrow-down"></i>
+            </a>
+          </div>         
+        </div>
+    `;
+    
+    console.log(element)
+    console.log(htmlprueba)
+
+    let containerShoppingCart = document.getElementById("my-shopping-cart");
+    containerShoppingCart.innerHTML += htmlprueba;
+
+    }
+  )
+}
+
+function datos(){
+  let datastorage = localStorage.getItem('datalocalStorage');
+  return JSON.parse(datastorage);
+}
+
+
 
 //funcion 1 SHOPPING CART //RENAME SHOPPING CART
 /*

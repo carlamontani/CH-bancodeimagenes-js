@@ -1,5 +1,3 @@
-//var productSelected = [];  ---lo desactive
-let itemhtml = []; 
 let item = [];
 let price = [];
 let sumaPrecio = [];
@@ -13,23 +11,34 @@ function ShoppingCart(){
   // }
 
   this.clear = function() {
-    productSelected = [];
+
+    
+    console.log(this.productSelected);
+    console.log(price);
+    
+    this.productSelected = [];
     price = [];
-    itemhtml = [];
+    localStorage.clear();
     document.getElementById("my-shopping-cart").innerHTML = "";   
     document.querySelector('#total').innerHTML = 0;
+    
   }
 
   this.clearOne = function(id) {    
-    console.log(id);
 
     let removeitemparent = document.getElementById("my-shopping-cart");
     let removeitem = document.querySelector(`#cart-item${id}`);
-    let removefunction = Removefunction();
+
     function Removefunction() {
       removeitemparent.removeChild(removeitem);
     } 
-    //itemhtml = itemhtml - removefunction;
+    Removefunction();
+
+    price.pop()
+
+    this.recalcularCarrito();
+
+
 
     productosprueba = this.productSelected; //
 
@@ -48,19 +57,29 @@ function ShoppingCart(){
     }
 
     productosprueba = [];
-    productSelected = [];
+    
+    var cartString = JSON.stringify(this.productSelected);///// ver!!!!
+    localStorage.setItem('datalocalStorage', cartString)
+
+    var cartPrice = JSON.stringify(price);///// ver!!!!
+    localStorage.setItem('pricelocalStorage', cartPrice)
 
   }
 
   this.add = function(id) {
+    console.log(products)
     let imagesDisplay = products.get();
+    console.log(imagesDisplay)
     imagesDisplay.forEach(i => {
       if (i.id == id) {
         (this.productSelected).push(i);
-        var cartString = JSON.stringify(this.productSelected);
+        var cartString = JSON.stringify(this.productSelected);///// ver!!!!
         localStorage.setItem('datalocalStorage', cartString)
         this.buildHtml();
-        this.recalcularCarrito(i);
+        price.push(5);
+        var cartPrice = JSON.stringify(price);///// ver!!!!
+        localStorage.setItem('pricelocalStorage', cartPrice)
+        this.recalcularCarrito();
       }
     })
   }
@@ -72,13 +91,20 @@ function ShoppingCart(){
     function buildItem(i) {
       return `
         <div id="cart-item${i.id}" class="cart-item">
-          <p>IMG${i.id} </p>
-          <a href="#">
-            <i class="far fa-window-close" id="icon${i.id}" onclick="shoppingCart.clearOne(${i.id})"></i>
-          </a>
+          <div class="img-small">
+            <img style="height: inherit;" src="${i.urls.thumb}" alt="${i.alt_description}"/>
+          </div> 
+          <div class="cart-info">
+            <a href="#" class="cart-icon">
+              <i class="fas fa-times" id="icon${i.id}" onclick="shoppingCart.clearOne('${i.id}')"></i>
+            </a>
+            <p class="p-cart">ph: ${i.user.name}</p><span><p class="p-price"> $5</p>
+          </div>         
         </div>
       `;
     }
+
+    console.log(buildItem)
     let containerShoppingCart = document.getElementById("my-shopping-cart");
     containerShoppingCart.innerHTML = `
       ${productslist.map(buildItem).join(" ")}
@@ -90,14 +116,23 @@ function ShoppingCart(){
     //containerShoppingCart.innerHTML = itemhtml;   
   }
 
-  this.recalcularCarrito = (item) => {
-    price.push(item.price);
+  this.recalcularCarrito = () => {  
+    if (price === undefined || price.length == 0) {
+      localStorage.clear();
+      let containertotal = document.querySelector('#total');
+      containertotal.innerHTML = price;
+      console.log("prueba")
+    } else {
+      let reducesumaPrecio = (accumulator, currentValue) => accumulator + currentValue;
+      sumaPrecio = price.reduce(reducesumaPrecio);
+      console.log(sumaPrecio);
 
-    let reducesumaPrecio = (accumulator, currentValue) => accumulator + currentValue;
-    sumaPrecio = price.reduce(reducesumaPrecio);
+      let containertotal = document.querySelector('#total');
+      containertotal.innerHTML = sumaPrecio;
 
-    let containertotal = document.querySelector('#total');
-    containertotal.innerHTML = sumaPrecio;
+      let pricedatastorage = localStorage.getItem('pricelocalStorage');
+      return JSON.parse(pricedatastorage);
+    }
   }
 
   this.populate = function() {
@@ -105,12 +140,19 @@ function ShoppingCart(){
       this.productSelected = [];
     } else{
       this.productSelected = this.get();
+      price = this.getPrice();
+      this.recalcularCarrito();
     }
   }
 
   this.get = function() {
     let datastorage = localStorage.getItem('datalocalStorage');
     return JSON.parse(datastorage);
+  }
+
+  this.getPrice = function() {
+    let pricedatastorage = localStorage.getItem('pricelocalStorage');
+    return JSON.parse(pricedatastorage);  
   }
 }
 

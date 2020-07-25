@@ -1,6 +1,3 @@
-//mostrar productos
-//FUNCION CONSTRUCTORA
-
 function ImageGallery() {
 
   //RECIBE DATA **
@@ -24,18 +21,21 @@ function ImageGallery() {
     //console.log(data)
     return `
     <div class="image-card">
+       
       <div class="image-container">
-        <img src="${data.urls.small}" alt="${data.alt_description}"/>
+        <img class="image-img" src="${data.urls.small}" alt="${data.alt_description}"/>
+        <div class="button-container">
+          <div class="button-container-flex">
+            <button class="button add-to-cart" onclick="shoppingCart.add('${data.id}')">Agregar $5</button>
+          </div>
+        </div>
       </div>
       <div class="image-info">
-        <p>${data.id}<br>
-        ph: ${data.user.name}</p>
-        <button class="button add-to-cart" onclick="shoppingCart.add('${data.id}')">Agregar $5</button>
+        <p>ph: ${data.user.name}</p>
       </div>
     </div>
     `;
   };
-
 
   //DONDE SE VA  A UBICAR LA PARTE DEL HTML QUE CREE ANTES - GET BY ID **
   this.buildHtml = function(containerId, sourceData) {
