@@ -22,11 +22,11 @@ $(document).ready(() => {
 
   function imageError(){
     return `
-          <div class="image-card">
+          <div class="image-card-error">
               <div class="image-container">
                 <img src="https://media.giphy.com/media/OADnCQDNf0WHu/giphy.gif" alt="meme-error"/>
-                <p>Error! <span>No encontramos resultados para tu búsqueda, volve a buscar otra palabra <3</p>
               </div>
+              <p>Error! <span>No encontramos resultados para tu búsqueda,<br> probá buscar otra palabra</p>
           </div>
           `;
   }
