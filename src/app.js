@@ -9,7 +9,7 @@ $(document).ready(function App() {
   
   products = new ImageGallery();
   
-  var url = `https://api.unsplash.com/photos/random?count=28&client_id=EKBNZeJV2o9Yl5CtCgcjiSv8dLPXoaoqFRFyTBgK-ww`;
+  var url = `https://api.unsplash.com/photos/random?count=24&client_id=EKBNZeJV2o9Yl5CtCgcjiSv8dLPXoaoqFRFyTBgK-ww`;
 
   $.ajax({
     method: "GET",
@@ -76,7 +76,7 @@ function download(){
   console.log(price2);
 
   price2.forEach(element => {
-    let htmlprueba = `
+    let htmldescarga = `
         <div class="cart-item">
           <div class="cart-info-download">
             <p>ph: ${element.user.name}</p>
@@ -86,12 +86,10 @@ function download(){
           </div>         
         </div>
     `;
-    
-    console.log(element)
-    console.log(htmlprueba)
+
 
     let containerShoppingCart = document.getElementById("my-shopping-cart");
-    containerShoppingCart.innerHTML += htmlprueba;
+    containerShoppingCart.innerHTML += htmldescarga;
 
     }
   )

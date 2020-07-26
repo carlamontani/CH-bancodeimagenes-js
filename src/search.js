@@ -69,14 +69,14 @@ $(document).ready(() => {
 
 function renderProducts(key, page) {    
     $("#nextpage").remove();
-    var htmlTemplate2 = pruebanumeros(key, page);
+    var htmlTemplate2 = pages(key, page);
     $("#image-gallery-next").append(htmlTemplate2);  
 }
 
-function pruebanumeros(key, page){
+function pages(key, page){
   return `
     <div id="nextpage">
-      <ul>
+      <ul class="ul">
         <li onclick="searchProducts('${key}', ${page}+1)">ver +</li>
       </ul>
     </div>

@@ -26,9 +26,11 @@
     <div class="menu-about">
       <div class="flex">
         <i class="far fa-window-close menu-close" onclick="closemenuabout()" ></i>
-        <p class= "menu-info">
-          El banquito fue desarrollado como proyecto final del curso de Javascript de Coderhouse. Utilizando la API de Unsplash https://api.unsplash.com/
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet quam veniam quos voluptatum doloribus corrupti architecto tenetur necessitatibus similique sapiente quae, corporis, sequi amet unde nihil excepturi voluptatem delectus quod!
+        <p id="tit-contact">
+          Sobre el Banquito.
+        </p>
+        <p class= "menu-info h3">
+          El banquito fue desarrollado como proyecto final del curso de Javascript de Coderhouse.<br> Imágenes de <a class="no-underline" href="https://unsplash.com"><b>Unsplash</b></a>
         </p>
       </div>
     </div>
@@ -64,24 +66,27 @@
     <div class="container">
       <div id="header-sticky">
         <div id="header">
+          <div class="menu-tit">
 
-          <div id="header-menu-icon">
-            <i class="fas fa-bars" onclick="menutoggle()"></i>
-            <div id="header-menu" style="display: none;">
-              <ul>
-                <li onclick="menuabouttoggle()">Info</li>
-                <li onclick="menucontacttoggle()">Contacto</li>
-                <li>
-                  <a href="https://github.com/carlamontani"><i class="fab fa-github"></i></a>
-                  <a href="https://www.behance.net/carlamontani"><i class="fab fa-behance"></i></a>
-                  <a href="http://"><i class="fab fa-linkedin-in"></i></a>
-                </li>
-              </ul>
+            <div id="header-menu-icon">
+              <i class="fas fa-bars" onclick="menutoggle()"></i>
+              <div id="header-menu" style="display: none;">
+                <ul>
+                  <li onclick="menuabouttoggle()">Info</li>
+                  <li onclick="menucontacttoggle()">Contacto</li>
+                  <li>
+                    <a href="https://github.com/carlamontani"><i class="fab fa-github"></i></a>
+                    <a href="https://www.behance.net/carlamontani"><i class="fab fa-behance"></i></a>
+                    <a href="http://"><i class="fab fa-linkedin-in"></i></a>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
 
-          <div id="header-title">
-            <h1 class="h1" onclick="window.location.reload();">El Banquito de Imagenes.</h1>
+            <div id="header-title">
+              <h1 class="h1" onclick="window.location.reload();">El Banquito de Imagenes.</h1>
+            </div>
+
           </div>
 
           <div id="header-search">
@@ -115,19 +120,23 @@
       <div id="cart-top">
           
         <div id="cart-title">
-          <h3 class="h3">Tu Changuito</h3>
-          <p id="clear-cart">
-            <p onclick="shoppingCart.clear()">borrar todo<i class="fas fa-thumbs-down"></i></p>
-          </p>
+          <h3 class="h3">Imágenes seleccionadas</h3>
+          <p onclick="shoppingCart.clear()" class="cart-p colorsec">Borrar todas</p>
+          
         </div>
 
-        <p id="cart-total">Total $
-          <p id="total"></p>
-        </p>    
+        <div id="cart-price">
+          <p id="cart-total">Total <span class="colorsec">$</span>
+            <p id="total"></p>
+          </p>   
+          
+          <button id="cart-button" onclick="download()">Descargar</button>
+          
+          <div class="padding-right">  
+            <i class="fas fa-sort-down" onclick="hideCart()"></i>
+          </div>
 
-        <button id="cart-button" onclick="download()">Descargar</button>
-    
-        <i class="fas fa-sort-down" onclick="hideCart()"></i>
+        </div>
 
       </div>
 
