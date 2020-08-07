@@ -121,6 +121,7 @@ p{
   position: sticky;
   top: 0;
   width: 100%;
+  padding-top: 30px;
 }
 
 #header{
@@ -188,6 +189,7 @@ li{
   display: flex;
   width: 30%;
   height: 50px;
+  padding-top: 5px;
 }
 
 .search-form{
@@ -222,6 +224,8 @@ li{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
 }
 
 .image-card{
@@ -233,6 +237,10 @@ li{
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-weight: 400;
+  font-size: 15px;
+  color: #0f0f0f;
+
 }
 
 .image-container{
